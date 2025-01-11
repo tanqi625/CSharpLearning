@@ -2,12 +2,20 @@
 
 namespace GameExp
 {
+    enum E_stageType
+    {
+        startStage,
+        gamePlayStage,
+        gameOverStage,
+
+
+    }
     class Program
     {
         public static bool IsWin ;
         public static int width = 50;
         public static int hight = 30;
-        public static int nowStage = 0;
+        public static E_stageType nowStage = E_stageType.startStage;
         
 
         #region 公主属性
@@ -63,14 +71,14 @@ namespace GameExp
                 
                 switch (nowStage)
                 {
-                    case 0:
+                    case E_stageType.startStage:
                         StartMenu();
                         break;
-                    case 1:
+                    case E_stageType.gamePlayStage:
                         
                         PlayGame();
                         break;
-                    case 2:
+                    case E_stageType.gameOverStage:
                         GameOver();
                         IsWin = false;
                         break;
@@ -129,7 +137,7 @@ namespace GameExp
                     case 'j':
                         if (nowSelection == 1)
                         {
-                            nowStage = 1;
+                            nowStage = E_stageType.gamePlayStage;
                             isExit = true;
                         }
                         else
@@ -259,7 +267,7 @@ namespace GameExp
                             {
 
                                 
-                                nowStage = 2;
+                                nowStage = E_stageType.gameOverStage;
                                 IsGaming = false;
 
                             }
@@ -301,7 +309,7 @@ namespace GameExp
                                 Console.ReadKey(true);
                                 Console.Write("按J键重新开始游戏");
                                 
-                                nowStage = 2;
+                                nowStage = E_stageType.gameOverStage;
                                 break;
                                 
 
