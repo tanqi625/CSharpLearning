@@ -47,6 +47,18 @@ namespace Array
                 Console.Write("   {0}", d[i]);
             }
             Console.WriteLine();
+            
+            for(int i = 0; i <d.Length/2; i++)
+            {
+                int t = d[i];
+                d[i] = d[d.Length - 1 - i];
+                d[d.Length - 1 - i] = t ;
+            }
+            for (int i = 0; i < d.Length; i++)
+            {
+                Console.Write("   {0}", d[i]);
+            }
+            Console.WriteLine();
             Console.WriteLine(Max(c));
             Console.WriteLine(GetSum(c));
             Console.WriteLine(GetAverage(c));
